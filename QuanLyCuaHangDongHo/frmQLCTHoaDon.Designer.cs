@@ -67,6 +67,7 @@
             this.dtgvCTHoaDon.RowTemplate.Height = 24;
             this.dtgvCTHoaDon.Size = new System.Drawing.Size(929, 371);
             this.dtgvCTHoaDon.TabIndex = 2;
+            this.dtgvCTHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCTHoaDon_CellClick);
             // 
             // btnLuu
             // 

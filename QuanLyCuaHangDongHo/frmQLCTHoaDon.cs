@@ -29,5 +29,10 @@ namespace QuanLyCuaHangDongHo
             f.ShowDialog();
             f.Close();
         }
+
+        private void dtgvCTHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

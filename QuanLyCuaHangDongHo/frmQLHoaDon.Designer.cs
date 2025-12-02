@@ -177,6 +177,7 @@
             this.dtgvQLHoaDon.RowTemplate.Height = 24;
             this.dtgvQLHoaDon.Size = new System.Drawing.Size(940, 274);
             this.dtgvQLHoaDon.TabIndex = 1;
+            this.dtgvQLHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvQLHoaDon_CellClick);
             // 
             // btnCTHoaDon
             // 
@@ -224,6 +225,7 @@
             this.btnLuu.TabIndex = 4;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -257,6 +259,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // groupBox1
             // 
