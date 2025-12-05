@@ -33,7 +33,7 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBoQua = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -93,7 +93,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnBoQua);
-            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.btnLuu);
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.btnSua);
             this.panel2.Controls.Add(this.btnThem);
@@ -116,15 +116,15 @@
             this.btnBoQua.Text = "Bỏ Qua";
             this.btnBoQua.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnLuu
             // 
-            this.button6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(608, 323);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(92, 35);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Lưu";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Location = new System.Drawing.Point(608, 323);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(92, 35);
+            this.btnLuu.TabIndex = 7;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
             // 
             // btnXoa
             // 
@@ -155,6 +155,7 @@
             this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnTimKiem
             // 
@@ -241,7 +242,7 @@
             // txtHSLuong
             // 
             this.txtHSLuong.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHSLuong.Location = new System.Drawing.Point(167, 149);
+            this.txtHSLuong.Location = new System.Drawing.Point(187, 149);
             this.txtHSLuong.Name = "txtHSLuong";
             this.txtHSLuong.Size = new System.Drawing.Size(145, 27);
             this.txtHSLuong.TabIndex = 8;
@@ -249,7 +250,7 @@
             // txtMaNhanVien
             // 
             this.txtMaNhanVien.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNhanVien.Location = new System.Drawing.Point(167, 89);
+            this.txtMaNhanVien.Location = new System.Drawing.Point(187, 89);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Size = new System.Drawing.Size(145, 27);
             this.txtMaNhanVien.TabIndex = 7;
@@ -257,7 +258,7 @@
             // txtMaBangLuong
             // 
             this.txtMaBangLuong.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaBangLuong.Location = new System.Drawing.Point(167, 19);
+            this.txtMaBangLuong.Location = new System.Drawing.Point(187, 17);
             this.txtMaBangLuong.Name = "txtMaBangLuong";
             this.txtMaBangLuong.Size = new System.Drawing.Size(145, 27);
             this.txtMaBangLuong.TabIndex = 6;
@@ -332,6 +333,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmQLLuong";
             this.Text = "frmQLLuong";
+            this.Load += new System.EventHandler(this.frmQLLuong_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -352,7 +354,7 @@
         private System.Windows.Forms.DataGridView dtgvLuong;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnBoQua;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;

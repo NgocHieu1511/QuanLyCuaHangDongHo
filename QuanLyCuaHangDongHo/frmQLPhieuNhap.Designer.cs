@@ -37,12 +37,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBoqua = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbMaNV = new System.Windows.Forms.ComboBox();
             this.cbMaNCC = new System.Windows.Forms.ComboBox();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.txtMaPN = new System.Windows.Forms.TextBox();
             this.lblMaNV = new System.Windows.Forms.Label();
@@ -54,10 +58,6 @@
             this.btnCTPhieuNhap = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dtgvCTPhieuNhap = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -173,6 +173,25 @@
             this.btnBoqua.Text = "Bỏ qua";
             this.btnBoqua.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(587, 31);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(268, 27);
+            this.dateTimePicker1.TabIndex = 14;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(587, 79);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(268, 27);
+            this.comboBox2.TabIndex = 13;
+            // 
             // dtpNgayNhap
             // 
             this.dtpNgayNhap.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,6 +200,15 @@
             this.dtpNgayNhap.Size = new System.Drawing.Size(268, 27);
             this.dtpNgayNhap.TabIndex = 14;
             this.dtpNgayNhap.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(110, 79);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(268, 27);
+            this.comboBox1.TabIndex = 12;
             // 
             // cbMaNV
             // 
@@ -229,6 +257,14 @@
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(110, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(268, 27);
+            this.textBox1.TabIndex = 4;
             // 
             // btnThem
             // 
@@ -334,41 +370,6 @@
             this.dtgvCTPhieuNhap.RowTemplate.Height = 24;
             this.dtgvCTPhieuNhap.Size = new System.Drawing.Size(719, 275);
             this.dtgvCTPhieuNhap.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(110, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(268, 27);
-            this.textBox1.TabIndex = 4;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(268, 27);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(587, 79);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(268, 27);
-            this.comboBox2.TabIndex = 13;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(587, 31);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(268, 27);
-            this.dateTimePicker1.TabIndex = 14;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // frmQLPhieuNhap
             // 

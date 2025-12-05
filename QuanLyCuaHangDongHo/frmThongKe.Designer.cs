@@ -61,7 +61,7 @@
             this.lblThongKe.Name = "lblThongKe";
             this.lblThongKe.Size = new System.Drawing.Size(324, 37);
             this.lblThongKe.TabIndex = 1;
-            this.lblThongKe.Text = "Thông Kê Doanh Thu";
+            this.lblThongKe.Text = "Thống Kê Doanh Thu";
             // 
             // button1
             // 
@@ -109,12 +109,13 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(158, 52);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Thông Kê";
+            this.button2.Text = "Thống Kê";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(528, 48);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(272, 27);
@@ -126,9 +127,9 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(93, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(226, 19);
+            this.label2.Size = new System.Drawing.Size(232, 19);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Thông kê doanh thu theo ngày";
+            this.label2.Text = "Thông kê doanh thu theo ngày:";
             // 
             // frmThongKe
             // 

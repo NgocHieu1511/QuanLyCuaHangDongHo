@@ -22,6 +22,7 @@ namespace QuanLyCuaHangDongHo
         }
         void LoadList()
         {
+
             string query = "SELECT * FROM NhanVien";
             DataProvider provider = new DataProvider();
             dtgvNhanVien.DataSource = provider.ExcuteQuery(query);
