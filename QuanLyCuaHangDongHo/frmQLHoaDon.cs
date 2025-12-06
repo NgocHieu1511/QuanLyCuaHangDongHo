@@ -25,8 +25,8 @@ namespace QuanLyCuaHangDongHo
         void LoadList()
         {
             
-            string query = "SELECT  a.maSP, b.tenSP,a.SoLuong, b.gia, a.giamGia,a.ThanhTien FROM " +
-                "ChiTietHoaDon AS a, SanPham AS b WHERE a.maHD = N'" + txtMaHĐ.Text + "' AND a.maSP=b.maSP";
+            string query = "SELECT a.maSP, b.tenSP, a.soLuong, b.gia, a.giamGia,a.ThanhTien " +
+                "FROM ChiTietHoaDon AS a, SanPham AS b WHERE a.maHD = N'" + txtMaHĐ.Text + "' AND a.maSP=b.maSP";
             DataProvider provider = new DataProvider();
             dtgvQLHoaDon.DataSource = provider.ExcuteQuery(query);
             
@@ -43,15 +43,14 @@ namespace QuanLyCuaHangDongHo
         void ResetValue()
         {
             txtMaHĐ.Text = "";
-            dtpNgayBan.Text = DateTime.Now.ToShortDateString();
+            dtpNgayBan.Value = DateTime.Now;
             cbMaNV.Text = "";
-            
-            
-           
-            cbMaSP.Text = "";
-            txtSoLuong.Text = "0";
-            txtGiamGia.Text = "0";
             txtTongTien.Text = "0";
+
+            cbMaSP.Text = "";
+            txtSoLuong.Text = "";
+            txtGiamGia.Text = "0";
+            
             txtThanhTien.Text = "0";
         }
         private void ResetValuesHang()
@@ -70,7 +69,7 @@ namespace QuanLyCuaHangDongHo
             
             query = "SELECT maNV FROM HoaDon WHERE maHD = N'" + txtMaHĐ.Text + "'";
             cbMaNV.Text = provider.GetFieldValues(query);
-            query = "SELECT ngay FROM HoaDon WHERE maHD = N'" + txtMaHĐ.Text + "'";
+            query = "SELECT ngaylap FROM HoaDon WHERE maHD = N'" + txtMaHĐ.Text + "'";
             dtpNgayBan.Value = DateTime.Parse(provider.GetFieldValues(query));
             query = "SELECT TongTien FROM HoaDon WHERE maHD = N'" + txtMaHĐ.Text + "'";
 
@@ -122,9 +121,9 @@ namespace QuanLyCuaHangDongHo
             txtGiamGia.Text = "0";
             txtTongTien.Text = "0";
             dtpNgayBan.Value = DateTime.Now;
-            provider.FillCombo("SELECT MaNV, TenNV FROM NhanVien", cbMaNV, "MaNV", "MaNV");
+            provider.FillCombo("SELECT maNV, tenNV FROM NhanVien", cbMaNV, "maNV", "maNV");
             cbMaNV.SelectedIndex = -1;
-            provider.FillCombo("SELECT MaSP, TenSP FROM SanPham", cbMaSP, "MaSP", "MaSP");
+            provider.FillCombo("SELECT maSP, tenSP FROM SanPham", cbMaSP, "maSP", "maSP");
             cbMaSP.SelectedIndex = -1;
             //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
             if (txtMaHĐ.Text != "")
@@ -166,22 +165,11 @@ namespace QuanLyCuaHangDongHo
             query = "SELECT maHD FROM HoaDon WHERE maHD=N'" + txtMaHĐ.Text.Trim() + "'";
             if (!provider.CheckKey(query))
             {
-                //if (dtpNgayBan.Text.Length == 0)
-                //{
-                //    MessageBox.Show("Bạn phải nhập ngày bán", "Thông báo");
-                //    dtpNgayBan.Focus();
-                //    return;
-                //}
-                //if (cbMaNV.Text.Length == 0)
-                //{
-                //    MessageBox.Show("Bạn phải nhập nhân viên", "Thông báo");
-                //    cbMaNV.Focus();
-                //    return;
-                //}
-                query = "INSERT INTO HoaDon (maHD, ngay, maNV, TongTien) VALUES(N'"
+               
+                query = "INSERT INTO HoaDon (maHD, ngayLap, maNV, TongTien) VALUES(N'"
          + txtMaHĐ.Text.Trim() + "', '"
-         + dtpNgayBan.Value.ToString("yyyy-MM-dd") + "', N'"
-         + cbMaNV.SelectedValue.ToString() + "', "
+         + dtpNgayBan.Value + "', N'"
+         + cbMaNV.SelectedValue + "', "
          + txtTongTien.Text + ")";
 
                 provider.RunSQL(query);
@@ -226,7 +214,7 @@ namespace QuanLyCuaHangDongHo
                 return;
             }
 
-            query = "INSERT INTO ChiTietHoaDon(maHD,maSP,SoLuong,DonGia, GiamGia,ThanhTien) VALUES(N'" + txtMaHĐ.Text.Trim() + "',N'" + cbMaSP.SelectedValue + "'," + txtSoLuong.Text + "," + txtDonGia.Text + "," + txtGiamGia.Text + "," + txtThanhTien.Text + ")";
+            query = "INSERT INTO ChiTietHoaDon(maHD,maSP,soLuong,DonGia, giamGia,ThanhTien) VALUES(N'" + txtMaHĐ.Text.Trim() + "',N'" + cbMaSP.SelectedValue + "'," + txtSoLuong.Text + "," + txtDonGia.Text + "," + txtGiamGia.Text + "," + txtThanhTien.Text + ")";
             provider.RunSQL(query);
             LoadList();
             //Cập nhật lại số lượng của mặt hàng vào bảng Sản phẩm
@@ -332,7 +320,7 @@ namespace QuanLyCuaHangDongHo
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-         
+
             txtMaHĐ.Text = cbTimKiem.Text;
             LoadInfoHoaDon();
             LoadList();

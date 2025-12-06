@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyCuaHangDongHo.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace QuanLyCuaHangDongHo
         public frmThongKe()
         {
             InitializeComponent();
+            LoadList();
+        }
+        void LoadList()
+        {
+            DataProvider provider = new DataProvider();
+            string query = $@"SELECT ngayLap,SUM(TongTien) AS TongTien FROM HoaDon WHERE ngayLap BETWEEN
+'{dtpNgayBatDau.Value.ToString("yyyyMMdd")}' AND '{dtpNgayKetThuc.Value.ToString("yyyyMMdd")}' GROUP BY ngayLap";
+            dtgvThongKe.DataSource = provider.ExcuteQuery(query);
+            dtgvThongKe.Columns[0].HeaderText = "Ngày lập";
+            dtgvThongKe.Columns[1].HeaderText = "Tổng tiền";
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -28,6 +39,18 @@ namespace QuanLyCuaHangDongHo
             frmMain f = new frmMain();
             f.ShowDialog();
             this.Close();
+        }
+
+        private void frmThongKe_Load(object sender, EventArgs e)
+        {
+            LoadList();
+
+
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            LoadList();
         }
     }
 }
