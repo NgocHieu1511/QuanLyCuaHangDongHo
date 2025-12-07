@@ -372,6 +372,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmQLNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQLNhanVien";
             this.Load += new System.EventHandler(this.frmQLNhanVien_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmQLNhanVien_KeyUp);

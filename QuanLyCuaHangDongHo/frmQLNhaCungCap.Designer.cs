@@ -286,6 +286,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmQLNhaCungCap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQLNhaCungCap";
             this.Load += new System.EventHandler(this.frmQLNhaCungCap_Load);
             this.panel1.ResumeLayout(false);

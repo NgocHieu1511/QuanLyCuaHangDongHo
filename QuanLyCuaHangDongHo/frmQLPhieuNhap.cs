@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyCuaHangDongHo.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,24 @@ namespace QuanLyCuaHangDongHo
         public frmQLPhieuNhap()
         {
             InitializeComponent();
+            LoadList();
+        }
+        void LoadList()
+        {
+
+            string query = "SELECT * FROM PhieuNhap";
+            DataProvider provider = new DataProvider();
+            dtgvPhieuNhap.DataSource = provider.ExcuteQuery(query);
+            dtgvPhieuNhap.Columns[0].HeaderText = "Mã phiếu nhập";
+            dtgvPhieuNhap.Columns[1].HeaderText = "Mã nhà cung cấp";
+            dtgvPhieuNhap.Columns[2].HeaderText = "Ngày nhập";
+            dtgvPhieuNhap.Columns[3].HeaderText = "Tiền nhập";
+
+            dtgvPhieuNhap.AllowUserToAddRows = false;
+            dtgvPhieuNhap.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

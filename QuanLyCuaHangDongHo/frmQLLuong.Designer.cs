@@ -42,13 +42,11 @@
             this.lblTimKiem = new System.Windows.Forms.Label();
             this.dtgvLuong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbThang = new System.Windows.Forms.ComboBox();
             this.txtThuong = new System.Windows.Forms.TextBox();
             this.txtNgayCong = new System.Windows.Forms.TextBox();
             this.txtHSLuong = new System.Windows.Forms.TextBox();
             this.txtMaNhanVien = new System.Windows.Forms.TextBox();
             this.txtMaBangLuong = new System.Windows.Forms.TextBox();
-            this.lblThang = new System.Windows.Forms.Label();
             this.lblThuong = new System.Windows.Forms.Label();
             this.lblNgayCong = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -115,6 +113,7 @@
             this.btnBoQua.TabIndex = 8;
             this.btnBoQua.Text = "Bỏ Qua";
             this.btnBoQua.UseVisualStyleBackColor = true;
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnLuu
             // 
@@ -125,6 +124,7 @@
             this.btnLuu.TabIndex = 7;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -197,13 +197,11 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.cbThang);
             this.panel3.Controls.Add(this.txtThuong);
             this.panel3.Controls.Add(this.txtNgayCong);
             this.panel3.Controls.Add(this.txtHSLuong);
             this.panel3.Controls.Add(this.txtMaNhanVien);
             this.panel3.Controls.Add(this.txtMaBangLuong);
-            this.panel3.Controls.Add(this.lblThang);
             this.panel3.Controls.Add(this.lblThuong);
             this.panel3.Controls.Add(this.lblNgayCong);
             this.panel3.Controls.Add(this.label5);
@@ -213,15 +211,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1008, 256);
             this.panel3.TabIndex = 2;
-            // 
-            // cbThang
-            // 
-            this.cbThang.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbThang.FormattingEnabled = true;
-            this.cbThang.Location = new System.Drawing.Point(702, 149);
-            this.cbThang.Name = "cbThang";
-            this.cbThang.Size = new System.Drawing.Size(145, 27);
-            this.cbThang.TabIndex = 11;
             // 
             // txtThuong
             // 
@@ -262,16 +251,6 @@
             this.txtMaBangLuong.Name = "txtMaBangLuong";
             this.txtMaBangLuong.Size = new System.Drawing.Size(145, 27);
             this.txtMaBangLuong.TabIndex = 6;
-            // 
-            // lblThang
-            // 
-            this.lblThang.AutoSize = true;
-            this.lblThang.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThang.Location = new System.Drawing.Point(628, 152);
-            this.lblThang.Name = "lblThang";
-            this.lblThang.Size = new System.Drawing.Size(60, 19);
-            this.lblThang.TabIndex = 5;
-            this.lblThang.Text = "Tháng:";
             // 
             // lblThuong
             // 
@@ -332,6 +311,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmQLLuong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQLLuong";
             this.Load += new System.EventHandler(this.frmQLLuong_Load);
             this.panel1.ResumeLayout(false);
@@ -366,12 +346,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblMaBangLuong;
-        private System.Windows.Forms.ComboBox cbThang;
         private System.Windows.Forms.TextBox txtThuong;
         private System.Windows.Forms.TextBox txtNgayCong;
         private System.Windows.Forms.TextBox txtHSLuong;
         private System.Windows.Forms.TextBox txtMaNhanVien;
         private System.Windows.Forms.TextBox txtMaBangLuong;
-        private System.Windows.Forms.Label lblThang;
     }
 }

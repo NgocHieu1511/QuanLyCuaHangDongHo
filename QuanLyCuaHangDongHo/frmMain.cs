@@ -64,7 +64,7 @@ namespace QuanLyCuaHangDongHo
 
         private void frmTrangChu_Load(object sender, EventArgs e)
         {
-            lblWelcome.Text = "Xin chào " + username + "!";
+            //lblWelcome.Text = "Xin chào " + username + "!";
         }
 
         private void btnLuong_Click(object sender, EventArgs e)

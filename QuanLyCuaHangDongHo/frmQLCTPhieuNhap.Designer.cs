@@ -303,6 +303,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmQLCTPhieuNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQLCTPhieuNhap";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

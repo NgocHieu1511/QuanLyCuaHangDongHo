@@ -101,12 +101,6 @@
     <Compile Include="frmQLPhieuNhap.Designer.cs">
       <DependentUpon>frmQLPhieuNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQLPhieuXuat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmQLPhieuXuat.Designer.cs">
-      <DependentUpon>frmQLPhieuXuat.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmQLSanPham.cs">
       <SubType>Form</SubType>
     </Compile>

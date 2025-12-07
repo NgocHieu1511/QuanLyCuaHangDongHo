@@ -57,14 +57,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCTPhieuNhap = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dtgvCTPhieuNhap = new System.Windows.Forms.DataGridView();
+            this.dtgvPhieuNhap = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCTPhieuNhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -355,21 +355,21 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dtgvCTPhieuNhap);
+            this.panel4.Controls.Add(this.dtgvPhieuNhap);
             this.panel4.Location = new System.Drawing.Point(4, 416);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(915, 284);
             this.panel4.TabIndex = 3;
             // 
-            // dtgvCTPhieuNhap
+            // dtgvPhieuNhap
             // 
-            this.dtgvCTPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCTPhieuNhap.Location = new System.Drawing.Point(103, 3);
-            this.dtgvCTPhieuNhap.Name = "dtgvCTPhieuNhap";
-            this.dtgvCTPhieuNhap.RowHeadersWidth = 51;
-            this.dtgvCTPhieuNhap.RowTemplate.Height = 24;
-            this.dtgvCTPhieuNhap.Size = new System.Drawing.Size(719, 275);
-            this.dtgvCTPhieuNhap.TabIndex = 0;
+            this.dtgvPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvPhieuNhap.Location = new System.Drawing.Point(103, 3);
+            this.dtgvPhieuNhap.Name = "dtgvPhieuNhap";
+            this.dtgvPhieuNhap.RowHeadersWidth = 51;
+            this.dtgvPhieuNhap.RowTemplate.Height = 24;
+            this.dtgvPhieuNhap.Size = new System.Drawing.Size(719, 275);
+            this.dtgvPhieuNhap.TabIndex = 0;
             // 
             // frmQLPhieuNhap
             // 
@@ -381,6 +381,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmQLPhieuNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQLPhieuNhap";
             this.Load += new System.EventHandler(this.frmQLPhieuNhap_Load);
             this.panel1.ResumeLayout(false);
@@ -391,7 +392,7 @@
             this.panel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCTPhieuNhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -419,7 +420,7 @@
         private System.Windows.Forms.Label lblMaPN;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCTPhieuNhap;
-        private System.Windows.Forms.DataGridView dtgvCTPhieuNhap;
+        private System.Windows.Forms.DataGridView dtgvPhieuNhap;
         private System.Windows.Forms.DateTimePicker dtpNgayNhap;
         private System.Windows.Forms.ComboBox cbMaNV;
         private System.Windows.Forms.ComboBox cbMaNCC;
