@@ -36,7 +36,7 @@
             this.lblQLPhieuNhap = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnBoqua = new System.Windows.Forms.Button();
+            this.btnBoQua = new System.Windows.Forms.Button();
             this.dtpNgay = new System.Windows.Forms.DateTimePicker();
             this.cbNV = new System.Windows.Forms.ComboBox();
             this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
@@ -106,6 +106,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnThoat
             // 
@@ -138,7 +139,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnBoqua);
+            this.groupBox1.Controls.Add(this.btnBoQua);
             this.groupBox1.Controls.Add(this.dtpNgay);
             this.groupBox1.Controls.Add(this.cbNV);
             this.groupBox1.Controls.Add(this.dtpNgayNhap);
@@ -163,15 +164,16 @@
             this.groupBox1.Text = "Thông tin chung";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // btnBoqua
+            // btnBoQua
             // 
-            this.btnBoqua.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBoqua.Location = new System.Drawing.Point(714, 135);
-            this.btnBoqua.Name = "btnBoqua";
-            this.btnBoqua.Size = new System.Drawing.Size(110, 41);
-            this.btnBoqua.TabIndex = 16;
-            this.btnBoqua.Text = "Bỏ qua";
-            this.btnBoqua.UseVisualStyleBackColor = true;
+            this.btnBoQua.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoQua.Location = new System.Drawing.Point(714, 135);
+            this.btnBoQua.Name = "btnBoQua";
+            this.btnBoQua.Size = new System.Drawing.Size(110, 41);
+            this.btnBoQua.TabIndex = 16;
+            this.btnBoQua.Text = "Bỏ qua";
+            this.btnBoQua.UseVisualStyleBackColor = true;
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // dtpNgay
             // 
@@ -237,6 +239,7 @@
             this.btnLuu.TabIndex = 11;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -247,6 +250,7 @@
             this.btnXoa.TabIndex = 10;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -257,6 +261,7 @@
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // txtPN
             // 
@@ -275,6 +280,7 @@
             this.btnThem.TabIndex = 8;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtMaPN
             // 
@@ -370,6 +376,7 @@
             this.dtgvPhieuNhap.RowTemplate.Height = 24;
             this.dtgvPhieuNhap.Size = new System.Drawing.Size(719, 275);
             this.dtgvPhieuNhap.TabIndex = 0;
+            this.dtgvPhieuNhap.Click += new System.EventHandler(this.dtgvPhieuNhap_Click);
             // 
             // frmQLPhieuNhap
             // 
@@ -424,7 +431,7 @@
         private System.Windows.Forms.DateTimePicker dtpNgayNhap;
         private System.Windows.Forms.ComboBox cbMaNV;
         private System.Windows.Forms.ComboBox cbMaNCC;
-        private System.Windows.Forms.Button btnBoqua;
+        private System.Windows.Forms.Button btnBoQua;
         private System.Windows.Forms.DateTimePicker dtpNgay;
         private System.Windows.Forms.ComboBox cbNV;
         private System.Windows.Forms.ComboBox cbNCC;

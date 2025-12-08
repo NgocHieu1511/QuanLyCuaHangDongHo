@@ -34,6 +34,8 @@ namespace QuanLyCuaHangDongHo
             dtgvLuong.AllowUserToAddRows = false;
             dtgvLuong.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
+       
+        
         void ResetValue()
         {
             txtMaBangLuong.Text = "";
@@ -163,6 +165,7 @@ namespace QuanLyCuaHangDongHo
                 txtMaBangLuong.Focus();
                 return;
             }
+            //5. Cập nhật tổng lương
             
 
 
@@ -182,6 +185,12 @@ namespace QuanLyCuaHangDongHo
 
             // 7. Chạy INSERT đúng cách
             provider.RunSQL(query);
+            // >>> Thêm đoạn này ngay dưới INSERT:
+            string updateTongLuong = "UPDATE Luong " +
+                                     "SET tong = (ngayCong * hsl * 100000) + thuong " +
+                                     "WHERE maLuong = '" + txtMaBangLuong.Text.Trim() + "'";
+
+            provider.RunSQL(updateTongLuong);
 
             // 8. Làm mới form
             LoadList();
@@ -203,6 +212,125 @@ namespace QuanLyCuaHangDongHo
             btnBoQua.Enabled = false;
             btnLuu.Enabled = false;
             txtMaBangLuong.Enabled = false;
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            DataProvider provider = new DataProvider();
+
+            if (dtgvLuong.Rows.Count == 0)
+            {
+                MessageBox.Show("Không còn dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtMaBangLuong.Text.Trim() == "")
+            {
+                MessageBox.Show("Bạn chưa chọn bản ghi nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaBangLuong.Focus();
+                return;
+            }
+            // 1. Kiểm tra mã nhân viên
+            if (txtMaNhanVien.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập mã nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaNhanVien.Focus();
+                return;
+            }
+
+            // 2. Kiểm tra địa chỉ
+            if (txtNgayCong.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập ngày công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNgayCong.Focus();
+                return;
+            }
+            if (txtThuong.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập thưởng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtThuong.Focus();
+                return;
+            }
+
+            
+
+            // 4. Kiểm tra số điện thoại
+            string hsl = txtHSLuong.Text.Trim();
+            if (hsl.Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập hệ số lương", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtHSLuong.Focus();
+                return;
+            }
+            string query = "UPDATE Luong SET " +
+                   "maNV = N'" + txtMaNhanVien.Text + "', " +
+                   "ngayCong = '" + txtNgayCong.Text + "', " +
+                   "hsl = N'" + txtHSLuong.Text + "', " +
+                   "thuong = N'" + txtThuong + "', " +
+                   
+                   "WHERE maLuong = N'" + txtMaBangLuong.Text + "'";
+            provider.RunSQL(query);
+
+            MessageBox.Show("Đã cập nhật thông tin lương nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            LoadList();
+            ResetValue();
+            btnBoQua.Enabled = false;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DataProvider provider = new DataProvider();
+
+            if (dtgvLuong.Rows.Count == 0)
+            {
+                MessageBox.Show("Không còn dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (txtMaBangLuong.Text.Trim() == "")
+            {
+                MessageBox.Show("Bạn chưa chọn bản ghi nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaBangLuong.Focus();
+                return;
+            }
+
+            if (MessageBox.Show("Bạn có muốn xoá bản ghi này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string query = "DELETE FROM Luong WHERE maLuong = N'" + txtMaBangLuong.Text + "'";
+                provider.RunSQL(query);
+
+                MessageBox.Show("Xoá nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LoadList();     // làm mới DataGridView
+                ResetValue();   // reset form
+            }
+        }
+
+        private void dtgvLuong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dtgvLuong_Click(object sender, EventArgs e)
+        {
+            if (btnThem.Enabled == false)
+            {
+                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaBangLuong.Focus();
+                return;
+            }
+            txtMaBangLuong.Text = dtgvLuong.CurrentRow.Cells[0].Value.ToString();
+            txtMaNhanVien.Text = dtgvLuong.CurrentRow.Cells[1].Value.ToString();
+            txtNgayCong.Text = dtgvLuong.CurrentRow.Cells[2].Value.ToString();
+            txtHSLuong.Text = dtgvLuong.CurrentRow.Cells[3].Value.ToString();
+            txtThuong.Text = dtgvLuong.CurrentRow.Cells[4].Value.ToString();
+            txtTongLuong.Text = dtgvLuong.CurrentRow.Cells[4].Value.ToString();
+
+
+            
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnBoQua.Enabled = true;
         }
     }
 }

@@ -52,6 +52,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblMaBangLuong = new System.Windows.Forms.Label();
+            this.lblTongLuong = new System.Windows.Forms.Label();
+            this.txtTongLuong = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvLuong)).BeginInit();
@@ -135,6 +137,7 @@
             this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -145,6 +148,7 @@
             this.btnSua.TabIndex = 5;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -194,9 +198,13 @@
             this.dtgvLuong.RowTemplate.Height = 24;
             this.dtgvLuong.Size = new System.Drawing.Size(903, 247);
             this.dtgvLuong.TabIndex = 0;
+            this.dtgvLuong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvLuong_CellContentClick);
+            this.dtgvLuong.Click += new System.EventHandler(this.dtgvLuong_Click);
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txtTongLuong);
+            this.panel3.Controls.Add(this.lblTongLuong);
             this.panel3.Controls.Add(this.txtThuong);
             this.panel3.Controls.Add(this.txtNgayCong);
             this.panel3.Controls.Add(this.txtHSLuong);
@@ -302,6 +310,24 @@
             this.lblMaBangLuong.TabIndex = 0;
             this.lblMaBangLuong.Text = "Mã Bảng Lương:";
             // 
+            // lblTongLuong
+            // 
+            this.lblTongLuong.AutoSize = true;
+            this.lblTongLuong.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongLuong.Location = new System.Drawing.Point(589, 152);
+            this.lblTongLuong.Name = "lblTongLuong";
+            this.lblTongLuong.Size = new System.Drawing.Size(103, 19);
+            this.lblTongLuong.TabIndex = 11;
+            this.lblTongLuong.Text = "Tổng lương: ";
+            // 
+            // txtTongLuong
+            // 
+            this.txtTongLuong.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTongLuong.Location = new System.Drawing.Point(702, 146);
+            this.txtTongLuong.Name = "txtTongLuong";
+            this.txtTongLuong.Size = new System.Drawing.Size(145, 27);
+            this.txtTongLuong.TabIndex = 12;
+            // 
             // frmQLLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -351,5 +377,7 @@
         private System.Windows.Forms.TextBox txtHSLuong;
         private System.Windows.Forms.TextBox txtMaNhanVien;
         private System.Windows.Forms.TextBox txtMaBangLuong;
+        private System.Windows.Forms.TextBox txtTongLuong;
+        private System.Windows.Forms.Label lblTongLuong;
     }
 }

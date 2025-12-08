@@ -24,7 +24,7 @@ namespace QuanLyCuaHangDongHo
         }
         void LoadList()
         {
-            //string query = "SELECT * FROM ChiTietHoaDon";
+            
             string query = "SELECT a.maSP, b.tenSP, a.soLuong, b.gia, a.giamGia,a.ThanhTien " +
              "FROM ChiTietHoaDon AS a, SanPham AS b WHERE a.maHD = N'" + txtMaHD.Text + "' AND a.maSP=b.maSP";
             DataProvider provider = new DataProvider();
@@ -37,12 +37,7 @@ namespace QuanLyCuaHangDongHo
             dtgvQLHoaDon.Columns[3].HeaderText = "Đơn giá";
             dtgvQLHoaDon.Columns[4].HeaderText = "Giảm giá %";
             dtgvQLHoaDon.Columns[5].HeaderText = "Thành Tiền";
-            //dtgvQLHoaDon.Columns[0].HeaderText = "Mã hóa đơn";
-            //dtgvQLHoaDon.Columns[1].HeaderText = "Mã sản phẩm";
-            //dtgvQLHoaDon.Columns[2].HeaderText = "Số lượng";
-            //dtgvQLHoaDon.Columns[3].HeaderText = "Đơn giá";
-            //dtgvQLHoaDon.Columns[].HeaderText = "Giarm giá";
-            //dtgvQLHoaDon.Columns[5].HeaderText = "Thành Tiền";
+          
 
             dtgvQLHoaDon.AllowUserToAddRows = false;
             dtgvQLHoaDon.EditMode = DataGridViewEditMode.EditProgrammatically;
@@ -104,10 +99,10 @@ namespace QuanLyCuaHangDongHo
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmQLCTHoaDon f = new frmQLCTHoaDon();
-            f.ShowDialog();
-            this.Close();
+            //this.Hide();
+            //frmQLCTHoaDon f = new frmQLCTHoaDon();
+            //f.ShowDialog();
+            //this.Close();
         }
 
         private void frmQLHoaDon_Load(object sender, EventArgs e)
@@ -351,10 +346,10 @@ namespace QuanLyCuaHangDongHo
             string mahd;
             if (MessageBox.Show("Bạn có muốn hiển thị thông tin chi tiết?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                mahd = dtgvQLHoaDon.CurrentRow.Cells["maHD"].Value.ToString();
+                 mahd = txtMaHD.Text; // Dùng mã hóa đơn đang hiển thị
                 frmQLHoaDon frm = new frmQLHoaDon();
                 frm.txtMaHD.Text = mahd;
-                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.ShowDialog();
             }
         }
@@ -382,7 +377,7 @@ namespace QuanLyCuaHangDongHo
             exRange.Range["B1:B1"].ColumnWidth = 15;
             exRange.Range["A1:B1"].MergeCells = true;
             exRange.Range["A1:B1"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
-            exRange.Range["A1:B1"].Value = "Shop B.A.";
+            exRange.Range["A1:B1"].Value = "Cửa hàng đồng hồ WatchStore";
             exRange.Range["A2:B2"].MergeCells = true;
             exRange.Range["A2:B2"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["A2:B2"].Value = "Đan Phượng - Hà Nội";
@@ -456,7 +451,7 @@ namespace QuanLyCuaHangDongHo
             exRange.Range["A6:C6"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["A6:C6"].Value = tblThongtinHD.Rows[0][3];
 
-            exSheet.Name = "Hóa đơn nhập";
+            exSheet.Name = "Hóa đơn bán hàng";
             exApp.Visible = true;
         }
 
@@ -490,6 +485,21 @@ namespace QuanLyCuaHangDongHo
                 btnXoa.Enabled = false;
                 btnIn.Enabled = false;
             }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (Convert.ToInt32(e.KeyChar) == 8))
+                e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtTongTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (Convert.ToInt32(e.KeyChar) == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

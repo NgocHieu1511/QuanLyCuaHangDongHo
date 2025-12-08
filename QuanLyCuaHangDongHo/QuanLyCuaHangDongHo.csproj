@@ -59,12 +59,6 @@
     <Compile Include="frmDangKy.Designer.cs">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQLCTHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmQLCTHoaDon.Designer.cs">
-      <DependentUpon>frmQLCTHoaDon.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmQLCTPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +120,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmQLCTHoaDon.resx">
-      <DependentUpon>frmQLCTHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQLCTPhieuNhap.resx">
       <DependentUpon>frmQLCTPhieuNhap.cs</DependentUpon>
