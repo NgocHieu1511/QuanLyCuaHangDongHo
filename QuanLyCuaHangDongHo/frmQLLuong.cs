@@ -43,8 +43,9 @@ namespace QuanLyCuaHangDongHo
             txtMaNhanVien.Text = "";
             txtThuong.Text = "";
             txtNgayCong.Text = "";
-            
-            
+            txtTongLuong.Text = "";
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,6 +73,7 @@ namespace QuanLyCuaHangDongHo
             ResetValue();
             txtMaBangLuong.Enabled = true;
             txtMaBangLuong.Focus();
+            txtTongLuong.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -108,21 +110,21 @@ namespace QuanLyCuaHangDongHo
                 return;
             }
 
-            if (!hsl.All(Char.IsDigit))
-            {
-                MessageBox.Show("hệ số lương chỉ được chứa số!", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtHSLuong.Focus();
-                return;
-            }
+            //if (!hsl.All(Char.IsDigit))
+            //{
+            //    MessageBox.Show("hệ số lương chỉ được chứa số!", "Lỗi",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtHSLuong.Focus();
+            //    return;
+            //}
 
-            if (hsl.Length != 2)
-            {
-                MessageBox.Show("hệ số lương phải đúng 2 chữ số", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtHSLuong.Focus();
-                return;
-            }
+            //if (hsl.Length != 2)
+            //{
+            //    MessageBox.Show("hệ số lương phải đúng 2 chữ số", "Lỗi",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtHSLuong.Focus();
+            //    return;
+            //}
             // 3. CHECK SỐ ĐIỆN THOẠI
             string ngaycong = txtNgayCong.Text.Trim();
 
@@ -265,10 +267,15 @@ namespace QuanLyCuaHangDongHo
                    "maNV = N'" + txtMaNhanVien.Text + "', " +
                    "ngayCong = '" + txtNgayCong.Text + "', " +
                    "hsl = N'" + txtHSLuong.Text + "', " +
-                   "thuong = N'" + txtThuong + "', " +
+                   "thuong = N'" + txtThuong.Text + "' " +
                    
                    "WHERE maLuong = N'" + txtMaBangLuong.Text + "'";
             provider.RunSQL(query);
+            string updateTongLuong = "UPDATE Luong " +
+                                    "SET tong = (ngayCong * hsl * 100000) + thuong " +
+                                    "WHERE maLuong = '" + txtMaBangLuong.Text.Trim() + "'";
+
+            provider.RunSQL(updateTongLuong);
 
             MessageBox.Show("Đã cập nhật thông tin lương nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -324,13 +331,43 @@ namespace QuanLyCuaHangDongHo
             txtNgayCong.Text = dtgvLuong.CurrentRow.Cells[2].Value.ToString();
             txtHSLuong.Text = dtgvLuong.CurrentRow.Cells[3].Value.ToString();
             txtThuong.Text = dtgvLuong.CurrentRow.Cells[4].Value.ToString();
-            txtTongLuong.Text = dtgvLuong.CurrentRow.Cells[4].Value.ToString();
+            txtTongLuong.Text = dtgvLuong.CurrentRow.Cells[5].Value.ToString();
 
 
             
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnBoQua.Enabled = true;
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            DataProvider provider = new DataProvider();
+
+            if (txtTimKiem.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập thông tin tìm kiếm", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtTimKiem.Focus();
+                return;
+            }
+
+            string keyword = txtTimKiem.Text.Trim();
+
+            string query = @"
+        SELECT * FROM Luong 
+        WHERE 
+            maLuong LIKE N'%" + keyword + @"%' OR
+            maNV LIKE N'%" + keyword + @"%' OR
+            ngayCong LIKE N'%" + keyword + @"%' OR
+            hsl LIKE N'%" + keyword + @"%' OR
+            thuong LIKE N'%" + keyword + @"%' OR
+            tong LIKE N'%" + keyword + @"%'
+    ";
+
+            DataTable dt = provider.GetDataTable(query);
+            dtgvLuong.DataSource = dt;
         }
     }
 }

@@ -41,13 +41,13 @@ namespace QuanLyCuaHangDongHo
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            // Tạo form mới
-            frmDangKy f = new frmDangKy();
+            //this.Hide();
+            //// Tạo form mới
+            //frmDangKy f = new frmDangKy();
 
-            // Hiển thị Form2
-            f.ShowDialog();
-            this.Close();
+            //// Hiển thị Form2
+            //f.ShowDialog();
+            //this.Close();
 
             
             

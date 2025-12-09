@@ -42,6 +42,8 @@
             this.lblTimKiem = new System.Windows.Forms.Label();
             this.dtgvLuong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtTongLuong = new System.Windows.Forms.TextBox();
+            this.lblTongLuong = new System.Windows.Forms.Label();
             this.txtThuong = new System.Windows.Forms.TextBox();
             this.txtNgayCong = new System.Windows.Forms.TextBox();
             this.txtHSLuong = new System.Windows.Forms.TextBox();
@@ -52,8 +54,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblMaBangLuong = new System.Windows.Forms.Label();
-            this.lblTongLuong = new System.Windows.Forms.Label();
-            this.txtTongLuong = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvLuong)).BeginInit();
@@ -170,6 +170,7 @@
             this.btnTimKiem.TabIndex = 3;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtTimKiem
             // 
@@ -219,6 +220,24 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1008, 256);
             this.panel3.TabIndex = 2;
+            // 
+            // txtTongLuong
+            // 
+            this.txtTongLuong.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTongLuong.Location = new System.Drawing.Point(702, 146);
+            this.txtTongLuong.Name = "txtTongLuong";
+            this.txtTongLuong.Size = new System.Drawing.Size(145, 27);
+            this.txtTongLuong.TabIndex = 12;
+            // 
+            // lblTongLuong
+            // 
+            this.lblTongLuong.AutoSize = true;
+            this.lblTongLuong.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongLuong.Location = new System.Drawing.Point(589, 152);
+            this.lblTongLuong.Name = "lblTongLuong";
+            this.lblTongLuong.Size = new System.Drawing.Size(103, 19);
+            this.lblTongLuong.TabIndex = 11;
+            this.lblTongLuong.Text = "Tổng lương: ";
             // 
             // txtThuong
             // 
@@ -309,24 +328,6 @@
             this.lblMaBangLuong.Size = new System.Drawing.Size(133, 19);
             this.lblMaBangLuong.TabIndex = 0;
             this.lblMaBangLuong.Text = "Mã Bảng Lương:";
-            // 
-            // lblTongLuong
-            // 
-            this.lblTongLuong.AutoSize = true;
-            this.lblTongLuong.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongLuong.Location = new System.Drawing.Point(589, 152);
-            this.lblTongLuong.Name = "lblTongLuong";
-            this.lblTongLuong.Size = new System.Drawing.Size(103, 19);
-            this.lblTongLuong.TabIndex = 11;
-            this.lblTongLuong.Text = "Tổng lương: ";
-            // 
-            // txtTongLuong
-            // 
-            this.txtTongLuong.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongLuong.Location = new System.Drawing.Point(702, 146);
-            this.txtTongLuong.Name = "txtTongLuong";
-            this.txtTongLuong.Size = new System.Drawing.Size(145, 27);
-            this.txtTongLuong.TabIndex = 12;
             // 
             // frmQLLuong
             // 

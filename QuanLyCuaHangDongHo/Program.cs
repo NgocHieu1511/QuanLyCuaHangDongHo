@@ -16,7 +16,7 @@ namespace QuanLyCuaHangDongHo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmQLPhieuNhap());
+            Application.Run(new frmQLLuong());
         }
     }
 }

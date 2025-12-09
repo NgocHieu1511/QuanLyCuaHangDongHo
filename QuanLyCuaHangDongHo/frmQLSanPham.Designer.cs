@@ -250,7 +250,6 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(239, 27);
             this.txtSoLuong.TabIndex = 7;
-            this.txtSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtGia
             // 
@@ -259,7 +258,6 @@
             this.txtGia.Name = "txtGia";
             this.txtGia.Size = new System.Drawing.Size(239, 27);
             this.txtGia.TabIndex = 6;
-            this.txtGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtTenSP
             // 
